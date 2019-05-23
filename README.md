@@ -1,1 +1,2 @@
 # MpcBeFilePositionEx
+利用資料庫擴充MPC-BE歷史撥放紀錄儲存影片撥放時間

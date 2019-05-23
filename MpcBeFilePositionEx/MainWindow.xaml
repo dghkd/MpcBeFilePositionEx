@@ -1,0 +1,58 @@
+﻿<Window x:Class="MpcBeFilePositionEx.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MpcBeFilePositionEx"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="330">
+    <Grid x:Name="GD_LayoutRoot"
+          Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+            <TextBlock x:Name="TXT_ExtDesc"
+                       Text="File extention:"
+                       Width="100"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+            <TextBox x:Name="TXTBOX_Ext"
+                     Text="{Binding ExtName}"
+                     Margin="5,0"
+                     Width="100"
+                     VerticalAlignment="Center"
+                     VerticalContentAlignment="Center" />
+            <Button x:Name="BTN_Attach"
+                    Content="Attach"
+                    Command="{Binding CmdAttach}"
+                    Margin="5,0,0,0"
+                    Width="75" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal">
+            <Button x:Name="BTN_Del"
+                    Content="Delete"
+                    Command="{Binding CmdDetach}"
+                    Width="80"
+                    VerticalAlignment="Top" />
+        </StackPanel>
+        <ListView x:Name="LV_ExtList"
+                  Grid.Row="2"
+                  ItemsSource="{Binding ExtCollection}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <local:ExtListItem></local:ExtListItem>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
